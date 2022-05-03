@@ -3,10 +3,6 @@ const {User} = require('../models')
 const userController = {
     getAllUser(req, res){
         User.find({})
-        .populate({
-            path: 'thought',
-            select: '-__v'
-        })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
             console.log(err);
@@ -15,12 +11,8 @@ const userController = {
     },
     getUserById({params}, res) {
         User.findOne({ _id: params.id})
-        .populate({
-            path: 'thought',
-        })
-        .populate({
-            path: 'friends',
-        })
+        .populate('thoughts')
+        .populate('friends')
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
             console.log(err);
@@ -43,7 +35,15 @@ const userController = {
         })
         .catch(err => res.json(err));
     },
+    deleteUser({ params }, res) {
+        User.findOneAndDelete({ _id: params.id })
+          .then(dbUserData => res.json(dbUserData))
+          .catch(err => res.json(err));
+      }
 
-}
+
+
+
+};
 
 module.exports = userController
