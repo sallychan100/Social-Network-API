@@ -90,11 +90,11 @@ const thoughtController = {
           })
           .catch(err => res.json(err));
     },
-    deleteReactionById (req, res) {
+    deleteReaction ({ params }, res) {
         Thought.findOneAndUpdate(
-          { _id: req.thoughtId },
+          { _id: params.thoughtId },
           //addeing to array
-          { $pull: { reactions: {reactionId:req.params.reactionId }} },
+          { $pull: { reactions: {reactionId:params.reactionId }} },
           { new: true}
         )
           .then(dbReactionData => {
@@ -102,7 +102,7 @@ const thoughtController = {
               res.status(404).json({ message: 'No reaction found with this id!' });
               return;
             }
-            res.json(dbUserData);
+            res.json(dbReactionData, { message: 'This reaction has been deleted'});
           })
           .catch(err => res.json(err));
     }
