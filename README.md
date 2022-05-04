@@ -40,4 +40,6 @@ You will need to install Insomnia for testing
 If you have any questions, please reach out to me at [My email](sallywing123@gmail.com) or at [github](https://github.com/sallychan100)
 
 ## Walkthrough 
-[video](https://github.com/sallychan100/README-generator/blob/dd974204638f72332243058530f9650fa260c232/utils/walkthrough.gif)
+[Users and friends](https://drive.google.com/file/d/1TsQ1AnipaJKHBmbhBHOBZlOGecvfWU1k/view?usp=sharing)
+[Thoughts](https://drive.google.com/file/d/1YM2cuDhdNq-rzofeNEPm6VYFdBCoiGvx/view?usp=sharing)
+[Reactions] (https://drive.google.com/file/d/16JkT8wjpwmekxksP4U1leAWTp6q5lNIo/view?usp=sharing)
