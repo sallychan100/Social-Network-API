@@ -90,22 +90,24 @@ const thoughtController = {
           })
           .catch(err => res.json(err));
     },
-    deleteReaction ({ params }, res) {
+
+    deleteReaction({ params }, res){
         Thought.findOneAndUpdate(
-          { _id: params.thoughtId },
-          //addeing to array
-          { $pull: { reactions: {reactionId:params.reactionId }} },
-          { new: true}
+            { _id: params.thoughtId },
+            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { new: true }
         )
-          .then(dbReactionData => {
-            if (!dbReactionData) {
-              res.status(404).json({ message: 'No reaction found with this id!' });
-              return;
-            }
-            res.json(dbReactionData, { message: 'This reaction has been deleted'});
-          })
-          .catch(err => res.json(err));
+            .then(dbReactionData => {
+                if(!dbReactionData){
+                    res.status(404).json({ message: 'No reaction with this id' })
+                    return;
+                }
+                res.status(200).json({ message: 'This reaction has been deleted'});
+            })
+            .catch(err => res.json(err));
     }
+
+    
 };
 
 module.exports = thoughtController
