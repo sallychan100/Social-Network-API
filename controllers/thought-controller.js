@@ -73,6 +73,12 @@ const thoughtController = {
           })
           .catch(err => res.json(err));
       },
+
+    // createReaction
+
+
+
+
 }
 
 module.exports = thoughtController
